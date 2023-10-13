@@ -1,0 +1,83 @@
+create table customers
+( c_id numeric(10) constraint pk_c_id primary key,
+c_last_name varchar(30) not null,
+ c_name varchar(30) not null,
+ c_second_name varchar(20),
+ c_pasp_no char(10) not null constraint un_c_pasp_no unique,
+ c_pasp_date date not null,
+ c_pasp_place varchar(50) not null,
+ c_lisense char(10) constraint un_c_lisense unique
+);
+
+create table c_phones
+( c_id numeric(10) constraint ref_c_id references customers,
+ct_phone_num char(10),
+constraint pk_c_phones primary key (c_id, ct_phone_num));
+
+create table c_addrs
+( c_id numeric(10) constraint ref_c_id references customers,
+ca_addr varchar(100),
+constraint pk_c_addrs primary key (c_id, ca_addr));
+
+create table salaries_of_positions
+( s_post varchar(20) constraint pk_s_post primary key,
+s_salary numeric(8) not null constraint ch_s_salary check (s_salary > 0));
+
+create table employees
+( e_id numeric(10) constraint pk_e_id primary key,
+e_last_name varchar(30) not null,
+ e_name varchar(30) not null,
+ e_second_name varchar(20),
+ c_pasp_no char(10) not null constraint un_у_pasp_no unique,
+ e_pasp_date date not null,
+ e_pasp_place varchar(50) not null,
+ e_born date not null,
+ e_gender char(1) not null constraint ch_e_gender check (e_gender in ('M','F')),
+ e_inn char(10) not null constraint un_e_inn unique,
+ e_snils char(11) not null constraint un_e_snils unique,
+ e_post varchar(20) not null constraint ref_e_post references salaries_of_positions);
+ 
+ create table e_phones
+( e_id numeric(10) constraint ref_e_id references employees,
+et_phone_num char(10),
+constraint pk_e_phones primary key (e_id, et_phone_num));
+
+create table e_addrs
+( e_id numeric(10) constraint ref_e_id references employees,
+ea_addr varchar(100),
+constraint pk_e_addrs primary key (e_id, ea_addr));
+ 
+ create table models
+ ( m_brand varchar(50),
+  m_model varchar(50),
+  m_price numeric(9) not null constraint ch_m_price check (m_price > 0),
+  m_power numeric(4) constraint ch_m_power check (m_power > 0),
+  m_type varchar(20),
+  m_acceleration numeric(3,1) constraint ch_m_acceleration check (m_acceleration > 0),
+  m_speed numeric(3) constraint ch_m_speed check (m_speed > 0),
+  constraint pk_models primary key (m_brand, m_model)
+ );
+ 
+ create table vehicles
+ ( v_number char(9) constraint v_number primary key,
+  v_vrs char(10) not null constraint un_v_vrs unique,
+  v_vp char(10) not null constraint un_v_vp unique,
+  v_vin char(17) not null constraint un_v_vin unique,
+  v_color varchar(20),
+  v_year numeric(4) constraint ch_v_year check (v_year > 1890 and v_year <= date_part('year', CURRENT_DATE)),
+  m_brand varchar(50),
+  m_model varchar(50),
+  foreign key (m_brand, m_model) references models(m_brand, m_model)
+ );
+ 
+ create table rent_contracts
+ (r_id numeric(10) constraint pk_r_id primary key,
+  r_date_of_sign date not null,
+  r_start_date date not null constraint ch_r_start_date check (r_start_date >= r_date_of_sign),
+  r_end_date date not null constraint ch_r_end_date check (r_end_date >= r_start_date),
+  r_return char(2) not null constraint ch_r_return check (r_return in ('Y','N')),
+  r_cost numeric(9) not null constraint ch_r_cost check (r_cost > 0),
+  v_number char(9) not null constraint ref_v_number references vehicles,
+  c_id numeric(10) not null constraint ref_c_id references customers,
+  e_id numeric(10) not null constraint ref_e_id references employees
+ );

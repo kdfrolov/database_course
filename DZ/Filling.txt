@@ -1,0 +1,53 @@
+insert into customers values (0,'Иванов','Иван','Иванович','1234567891','1999-12-23','г.Москва','2345678912');
+insert into customers values (1,'Иванова','Юлия','Ивановна','2345678911','2004-12-19','г.Москва','3456789122');
+insert into customers values (2,'Смирнова','Виктория','Ивановна','3456789112','2008-11-19','г.Москва','4567891223');
+insert into customers values (3,'Ковалев','Дмитрий','Антонович','4567891123','2000-08-19','г.Воронеж','5678912234');
+insert into customers values (4,'Антонов','Олег','Иванович','5678911234','2019-12-19','г.Москва','6789122345');
+
+insert into c_phones values (0,'9172303344');
+insert into c_phones values (0,'9172303343');
+insert into c_phones values (1,'9162303344');
+insert into c_phones values (2,'9173433343');
+insert into c_phones values (3,'9172356744');
+insert into c_phones values (3,'9172303738');
+insert into c_phones values (4,'9484303343');
+
+insert into c_addrs values (0,'г.Москва, ул.Ленина, д.152, к.7');
+insert into c_addrs values (1,'г.Москва, ул.Ленина, д.153, к.1');
+insert into c_addrs values (1,'г.Москва, ул.Баумана, д.7, к.5');
+insert into c_addrs values (2,'г.Москва, ул.Металлургов, д.15, к.348');
+insert into c_addrs values (2,'г.Москва, ул.Ленина, д.152, к.8');
+insert into c_addrs values (3,'г.Москва, ул.Шведов, д.2, к.256');
+insert into c_addrs values (4,'г.Москва, ул.Ронина, д.34, к.71');
+
+insert into salaries_of_positions values ('Менеджер продаж', 30000);
+insert into salaries_of_positions values ('Старший менеджер', 60000);
+insert into salaries_of_positions values ('Администратор салона', 1000000);
+
+insert into employees values (0,'Смирнов','Дмитрий','Валерьевич','1987654321','2008-10-13','г.Омск','1988-08-13','M','9909123486','88878838800','Менеджер продаж');
+insert into employees values (1,'Крылатов','Андрей','Дмитриевич','1989054321','2012-12-13','г.Омск','1993-01-13','M','9908923486','88878838834','Менеджер продаж');
+insert into employees values (2,'Крыльцова','Алина','Генадьевна','1459054321','2013-12-13','г.Рязань','1994-01-13','F','9908925686','66678838834','Менеджер продаж');
+insert into employees values (3,'Одинцова','Мария','Кирилловна','1459653321','2014-12-17','г.Санкт-Петербург','1974-01-13','F','9908925647','66678838847','Менеджер продаж');
+insert into employees values (4,'Романов','Валентин','Генадьевна','1459054748','2004-12-13','г.Москва','1964-01-12','M','9908925653','66678838864','Менеджер продаж');
+
+insert into e_phones values (0,'9652303344');
+insert into e_phones values (1,'9652303343');
+insert into e_phones values (2,'9652303344');
+insert into e_phones values (2,'9653433343');
+insert into e_phones values (3,'9652356744');
+insert into e_phones values (4,'9652303738');
+insert into e_phones values (4,'9654303343');
+
+insert into e_addrs values (0,'г.Москва, ул.Ленина, д.152, к.1');
+insert into e_addrs values (1,'г.Москва, ул.Ленина, д.153, к.9');
+insert into e_addrs values (1,'г.Москва, ул.Баумана, д.7, к.17');
+insert into e_addrs values (2,'г.Москва, ул.Металлургов, д.15, к.248');
+insert into e_addrs values (2,'г.Москва, ул.Ленина, д.152, к.829');
+insert into e_addrs values (3,'г.Москва, ул.Шведов, д.2, к.25');
+insert into e_addrs values (4,'г.Москва, ул.Ронина, д.34, к.731');
+
+insert into models values ('BMV','X5M',20000,300,'ДВС','6.2',230);
+insert into models values ('BMV','X6M',25000,500,'ДВС',4.2,250);
+insert into models values ('Mercedes-Benz','CLA',18000,200,'ДВС',8.2,229);
+insert into models values ('Renault','Logan',3000,89,'ДВС',12.5,170);
+insert into models values ('Tesla','Model 3',30000,500,'Электро',5.6,225);
